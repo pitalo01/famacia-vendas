@@ -19,7 +19,6 @@ Back-end: Node.js, Express, MongoDB (Banco de Dados)
 
 Pagamentos: Integração com Mercado Pago ou Pix
 
-Deploy: Vercel (Front-end) / Heroku (Back-end)
 
 📦 Como Executar o Projeto Localmente?
 Pré-requisitos
