@@ -1,16 +1,21 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProductCard from "./ProductCard";
-import { 
-  Carousel, 
-  CarouselContent, 
-  CarouselItem, 
-  CarouselNext, 
-  CarouselPrevious 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { featuredProductsData, healthProductsData, hygieneProductsData, Product } from "@/lib/products";
+import {
+  featuredProductsData,
+  healthProductsData,
+  hygieneProductsData,
+  Product,
+} from "@/lib/products";
 
 interface FeaturedProductsProps {
   title: string;
@@ -19,32 +24,35 @@ interface FeaturedProductsProps {
   showCarousel?: boolean;
 }
 
-const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ 
-  title, 
-  seeAllLink, 
+const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
+  title,
+  seeAllLink,
   productList = featuredProductsData,
-  showCarousel = true 
+  showCarousel = true,
 }) => {
-
   // Set how many products to show at once based on screen size
   const settings = {
     opts: {
       loop: true,
       align: "start" as const,
-    }
+    },
   };
 
   return (
     <section className="py-8 md:py-12">
-      <div className="container px-4">
+      <div className="container px-4 md:px-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-pharmacy-dark-purple">{title}</h2>
-          <Link
-            to={seeAllLink}
-            className="text-sm font-medium text-pharmacy-purple hover:underline"
-          >
-            Ver todos
-          </Link>
+          <h2 className="text-2xl font-bold text-pharmacy-dark-primary">
+            {title}
+          </h2>
+          {seeAllLink && (
+            <Link
+              to={seeAllLink}
+              className="text-sm font-medium text-pharmacy-primary hover:underline"
+            >
+              Ver todos
+            </Link>
+          )}
         </div>
 
         {showCarousel ? (
@@ -52,7 +60,10 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
             <Carousel {...settings} className="w-full">
               <CarouselContent className="-ml-2 md:-ml-4">
                 {productList.map((product) => (
-                  <CarouselItem key={product.id} className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/4">
+                  <CarouselItem
+                    key={product.id}
+                    className="pl-2 md:pl-4 md:basis-1/3 lg:basis-1/4"
+                  >
                     <div className="p-1">
                       <ProductCard
                         id={product.id}
@@ -67,8 +78,8 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 lg:-left-12 bg-white/80 hover:bg-white border-pharmacy-purple text-pharmacy-dark-purple shadow-md" />
-              <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 lg:-right-12 bg-white/80 hover:bg-white border-pharmacy-purple text-pharmacy-dark-purple shadow-md" />
+              <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 lg:-left-12 bg-white/80 hover:bg-white border-pharmacy-primary text-pharmacy-dark-primary shadow-md" />
+              <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 lg:-right-12 bg-white/80 hover:bg-white border-pharmacy-primary text-pharmacy-dark-primary shadow-md" />
             </Carousel>
           </div>
         ) : (

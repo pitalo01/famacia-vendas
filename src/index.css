@@ -13,35 +13,35 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 259 83% 75%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 141 46% 20%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 258 35% 51%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 142 45% 30%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 258 47% 94%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 30% 94%;
+    --accent-foreground: 141 46% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 259 83% 75%;
+    --ring: 141 46% 20%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 141 46% 20%;
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 240 4.8% 95.9%;
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 141 46% 20%;
   }
 
   .dark {
@@ -54,33 +54,33 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 259 83% 75%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 141 46% 25%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 258 35% 51%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 142 45% 35%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 258 47% 30%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 141 46% 30%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    
+    --ring: 141 46% 25%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary: 141 46% 25%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 141 46% 25%;
   }
 }
 
@@ -95,7 +95,12 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-medium;
   }
 
@@ -108,7 +113,8 @@
 
   /* Improve touch targets on mobile */
   @media (max-width: 768px) {
-    button, a {
+    button,
+    a {
       @apply min-h-10 px-3;
     }
   }
@@ -118,38 +124,38 @@
   .prescription-badge {
     @apply bg-pharmacy-red/10 text-pharmacy-red text-xs px-2 py-1 rounded-md font-medium;
   }
-  
+
   .discount-badge {
     @apply bg-pharmacy-green/10 text-pharmacy-green text-xs px-2 py-1 rounded-md font-medium;
   }
-  
+
   .category-card {
     @apply bg-white p-3 md:p-4 rounded-lg shadow-md transition-all hover:shadow-lg hover:-translate-y-1;
   }
-  
+
   .product-card {
     @apply bg-white rounded-lg overflow-hidden shadow-md transition-all hover:shadow-lg flex flex-col;
     height: 420px;
     width: 100%;
   }
-  
+
   .product-image-container {
     height: 220px;
   }
-  
+
   .product-title {
     @apply mb-auto;
     min-height: 40px;
     max-height: 40px;
   }
-  
+
   .product-price {
     height: 50px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
   }
-  
+
   .card-footer-spacing {
     padding-top: 16px;
     margin-top: 8px;
@@ -161,7 +167,7 @@
   .mobile-container {
     @apply px-3 md:px-6;
   }
-  
+
   .mobile-section {
     @apply py-4 md:py-8;
   }

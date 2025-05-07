@@ -1,10 +1,14 @@
-
 import React from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardFooter,
+} from "@/components/ui/card";
 import { toast } from "sonner";
 
 const LoginForm: React.FC = () => {
@@ -19,11 +23,11 @@ const LoginForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulated login logic - would be replaced with actual authentication
     setTimeout(() => {
       setIsLoading(false);
-      
+
       if (email && password) {
         toast.success("Login realizado com sucesso!");
         navigate(redirectTo);
@@ -59,7 +63,7 @@ const LoginForm: React.FC = () => {
               <Label htmlFor="password">Senha</Label>
               <Link
                 to="/forgot-password"
-                className="text-xs text-pharmacy-purple hover:underline"
+                className="text-xs text-pharmacy-primary hover:underline"
               >
                 Esqueceu a senha?
               </Link>
@@ -74,7 +78,7 @@ const LoginForm: React.FC = () => {
           </div>
           <Button
             type="submit"
-            className="w-full bg-pharmacy-purple hover:bg-pharmacy-dark-purple"
+            className="w-full bg-pharmacy-primary hover:bg-pharmacy-dark-primary"
             disabled={isLoading}
           >
             {isLoading ? "Entrando..." : "Entrar"}
@@ -84,7 +88,10 @@ const LoginForm: React.FC = () => {
       <CardFooter className="flex flex-col space-y-4">
         <div className="text-sm text-center text-muted-foreground">
           Não tem uma conta?{" "}
-          <Link to="/register" className="text-pharmacy-purple hover:underline">
+          <Link
+            to="/register"
+            className="text-pharmacy-primary hover:underline"
+          >
             Cadastrar
           </Link>
         </div>

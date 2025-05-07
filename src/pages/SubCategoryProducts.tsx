@@ -47,15 +47,15 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       id: "gripe1",
       name: "Resfenol",
       image: "https://via.placeholder.com/200x200?text=Resfenol",
-      price: 12.90,
+      price: 12.9,
       requiresPrescription: false,
     },
     {
       id: "gripe2",
       name: "Fluviral",
       image: "https://via.placeholder.com/200x200?text=Fluviral",
-      price: 18.50,
-      oldPrice: 22.90,
+      price: 18.5,
+      oldPrice: 22.9,
       requiresPrescription: false,
     },
     {
@@ -66,49 +66,49 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       requiresPrescription: false,
     },
   ],
-  "antibioticos": [
+  antibioticos: [
     {
       id: "anti1",
       name: "Amoxicilina 500mg",
       image: "https://via.placeholder.com/200x200?text=Amoxicilina",
-      price: 29.90,
+      price: 29.9,
       requiresPrescription: true,
     },
     {
       id: "anti2",
       name: "Azitromicina 500mg",
       image: "https://via.placeholder.com/200x200?text=Azitromicina",
-      price: 35.90,
+      price: 35.9,
       requiresPrescription: true,
     },
   ],
-  
+
   // Saúde subcategories
-  "vitaminas": [
+  vitaminas: [
     {
       id: "vit1",
       name: "Vitamina C 1000mg",
       image: "https://via.placeholder.com/200x200?text=Vitamina+C",
-      price: 22.50,
-      oldPrice: 26.90,
+      price: 22.5,
+      oldPrice: 26.9,
       requiresPrescription: false,
     },
     {
       id: "vit2",
       name: "Vitamina D3 2000UI",
       image: "https://via.placeholder.com/200x200?text=Vitamina+D",
-      price: 39.90,
+      price: 39.9,
       requiresPrescription: false,
     },
     {
       id: "vit3",
       name: "Vitamina B12",
       image: "https://via.placeholder.com/200x200?text=Vitamina+B12",
-      price: 45.50,
+      price: 45.5,
       requiresPrescription: false,
     },
   ],
-  "suplementos": [
+  suplementos: [
     {
       id: "sup1",
       name: "Ômega 3 1000mg",
@@ -120,8 +120,8 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       id: "sup2",
       name: "Colágeno Hidrolisado",
       image: "https://via.placeholder.com/200x200?text=Colageno",
-      price: 65.90,
-      oldPrice: 79.90,
+      price: 65.9,
+      oldPrice: 79.9,
       requiresPrescription: false,
     },
   ],
@@ -130,25 +130,25 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       id: "ps1",
       name: "Termômetro Digital",
       image: "https://via.placeholder.com/200x200?text=Termometro",
-      price: 19.90,
+      price: 19.9,
       requiresPrescription: false,
     },
     {
       id: "ps2",
       name: "Bandagem Elástica",
       image: "https://via.placeholder.com/200x200?text=Bandagem",
-      price: 12.50,
+      price: 12.5,
       requiresPrescription: false,
     },
   ],
-  
+
   // Higiene subcategories
-  "bucal": [
+  bucal: [
     {
       id: "buc1",
       name: "Creme Dental",
       image: "https://via.placeholder.com/200x200?text=Creme+Dental",
-      price: 8.50,
+      price: 8.5,
       requiresPrescription: false,
     },
     {
@@ -162,12 +162,12 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       id: "buc3",
       name: "Enxaguante Bucal",
       image: "https://via.placeholder.com/200x200?text=Enxaguante",
-      price: 12.90,
-      oldPrice: 15.90,
+      price: 12.9,
+      oldPrice: 15.9,
       requiresPrescription: false,
     },
   ],
-  "corporal": [
+  corporal: [
     {
       id: "corp1",
       name: "Sabonete Líquido",
@@ -180,16 +180,16 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       id: "corp2",
       name: "Desodorante Aerosol",
       image: "https://via.placeholder.com/200x200?text=Desodorante",
-      price: 16.50,
+      price: 16.5,
       requiresPrescription: false,
     },
   ],
-  "intima": [
+  intima: [
     {
       id: "int1",
       name: "Sabonete Íntimo",
       image: "https://via.placeholder.com/200x200?text=Sabonete+Intimo",
-      price: 18.90,
+      price: 18.9,
       requiresPrescription: false,
     },
     {
@@ -201,14 +201,14 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       requiresPrescription: false,
     },
   ],
-  
+
   // Additional subcategories would follow the same pattern...
-  "fraldas": [
+  fraldas: [
     {
       id: "fral1",
       name: "Fralda Premium P",
       image: "https://via.placeholder.com/200x200?text=Fralda+P",
-      price: 59.90,
+      price: 59.9,
       oldPrice: 69.99,
       requiresPrescription: false,
     },
@@ -216,7 +216,7 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       id: "fral2",
       name: "Fralda Premium M",
       image: "https://via.placeholder.com/200x200?text=Fralda+M",
-      price: 62.90,
+      price: 62.9,
       requiresPrescription: false,
     },
   ],
@@ -236,19 +236,19 @@ const sampleSubcategoryProducts: Record<string, Product[]> = {
       requiresPrescription: false,
     },
   ],
-  "alimentacao": [
+  alimentacao: [
     {
       id: "alim1",
       name: "Leite em Pó Infantil",
       image: "https://via.placeholder.com/200x200?text=Leite+Infantil",
-      price: 45.90,
+      price: 45.9,
       requiresPrescription: false,
     },
     {
       id: "alim2",
       name: "Papinha Pronta",
       image: "https://via.placeholder.com/200x200?text=Papinha",
-      price: 6.50,
+      price: 6.5,
       requiresPrescription: false,
     },
   ],
@@ -258,45 +258,53 @@ const subcategoryNameMap: Record<string, string> = {
   // Medicamentos
   "dor-febre": "Dor e Febre",
   "gripe-resfriado": "Gripe e Resfriado",
-  "antibioticos": "Antibióticos",
-  
+  antibioticos: "Antibióticos",
+
   // Saúde
-  "vitaminas": "Vitaminas",
-  "suplementos": "Suplementos",
+  vitaminas: "Vitaminas",
+  suplementos: "Suplementos",
   "primeiros-socorros": "Primeiros Socorros",
-  
+
   // Higiene
-  "bucal": "Higiene Bucal",
-  "corporal": "Higiene Corporal",
-  "intima": "Higiene Íntima",
-  
+  bucal: "Higiene Bucal",
+  corporal: "Higiene Corporal",
+  intima: "Higiene Íntima",
+
   // Bebê
-  "fraldas": "Fraldas",
+  fraldas: "Fraldas",
   "higiene-bebe": "Higiene do Bebê",
-  "alimentacao": "Alimentação",
-  
+  alimentacao: "Alimentação",
+
   // Additional translations would be added for other subcategories
 };
 
 const categoryNameMap: Record<string, string> = {
-  "medicamentos": "Medicamentos",
-  "saude": "Saúde",
-  "higiene": "Higiene",
-  "bebe": "Bebê",
-  "beleza": "Beleza",
-  "bem-estar": "Bem-estar"
+  medicamentos: "Medicamentos",
+  saude: "Saúde",
+  higiene: "Higiene",
+  bebe: "Bebê",
+  beleza: "Beleza",
+  "bem-estar": "Bem-estar",
 };
 
 const SubCategoryProducts: React.FC = () => {
-  const { categoryId, subcategoryId } = useParams<{ categoryId: string, subcategoryId: string }>();
-  
+  const { categoryId, subcategoryId } = useParams<{
+    categoryId: string;
+    subcategoryId: string;
+  }>();
+
   // Get products for this subcategory
-  const products = subcategoryId && sampleSubcategoryProducts[subcategoryId] 
-    ? sampleSubcategoryProducts[subcategoryId] 
-    : [];
-  
-  const subcategoryName = subcategoryId ? (subcategoryNameMap[subcategoryId] || subcategoryId) : "";
-  const categoryName = categoryId ? (categoryNameMap[categoryId as keyof typeof categoryNameMap] || categoryId) : "";
+  const products =
+    subcategoryId && sampleSubcategoryProducts[subcategoryId]
+      ? sampleSubcategoryProducts[subcategoryId]
+      : [];
+
+  const subcategoryName = subcategoryId
+    ? subcategoryNameMap[subcategoryId] || subcategoryId
+    : "";
+  const categoryName = categoryId
+    ? categoryNameMap[categoryId as keyof typeof categoryNameMap] || categoryId
+    : "";
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -317,7 +325,7 @@ const SubCategoryProducts: React.FC = () => {
               </Button>
             </Link>
             <span className="text-muted-foreground">/</span>
-            <h1 className="text-2xl font-bold text-pharmacy-dark-purple">
+            <h1 className="text-2xl font-bold text-pharmacy-primary">
               {subcategoryName}
             </h1>
           </div>
@@ -340,7 +348,10 @@ const SubCategoryProducts: React.FC = () => {
           ) : (
             <div className="text-center py-12">
               <p>Nenhum produto encontrado nesta subcategoria.</p>
-              <Link to="/" className="text-pharmacy-purple hover:underline mt-4 block">
+              <Link
+                to="/"
+                className="text-pharmacy-primary hover:underline mt-4 block"
+              >
                 Voltar para a página inicial
               </Link>
             </div>
@@ -349,10 +360,16 @@ const SubCategoryProducts: React.FC = () => {
       </main>
       <footer className="py-6 bg-muted">
         <div className="container text-center text-sm text-muted-foreground">
-          <p>© 2025 Farmácia Virtual Encantada. Todos os direitos reservados.</p>
+          <p>
+            © 2025 Farmácia Virtual Encantada. Todos os direitos reservados.
+          </p>
           <div className="mt-2 space-x-4">
-            <Link to="/terms" className="text-xs hover:underline">Termos de Uso</Link>
-            <Link to="/privacy" className="text-xs hover:underline">Política de Privacidade</Link>
+            <Link to="/terms" className="text-xs hover:underline">
+              Termos de Uso
+            </Link>
+            <Link to="/privacy" className="text-xs hover:underline">
+              Política de Privacidade
+            </Link>
           </div>
         </div>
       </footer>

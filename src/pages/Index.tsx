@@ -1,55 +1,88 @@
+/**
+ * Index.tsx
+ *
+ * Página inicial da aplicação que exibe:
+ * - Hero banner principal
+ * - Categorias de produtos
+ * - Seções de produtos em destaque
+ * - Rodapé com informações legais
+ */
+
 import React from "react";
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import ProductCategories from "@/components/ProductCategories";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { healthProductsData, hygieneProductsData } from "@/lib/products";
 
+/**
+ * Componente Index
+ *
+ * Renderiza a página inicial da aplicação com múltiplas seções:
+ * - Barra de navegação superior
+ * - Banner hero promocional
+ * - Categorias de produtos
+ * - Múltiplas seções de produtos em destaque
+ * - Rodapé com informações legais e links
+ *
+ * Utiliza o hook useIsMobile para adaptar o layout em dispositivos móveis
+ */
 const Index = () => {
+  // Verifica se o dispositivo é móvel para adaptar a interface
   const isMobile = useIsMobile();
 
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Barra de navegação principal */}
       <Navbar />
+
+      {/* Conteúdo principal */}
       <main className="flex-1">
+        {/* Banner principal (hero) */}
         <Hero />
+
+        {/* Seções de produtos com espaçamento responsivo */}
         <div className="space-y-4 md:space-y-8">
+          {/* Exibição das categorias de produtos */}
           <ProductCategories />
-          <FeaturedProducts 
-            title="Ofertas em Destaque" 
-            seeAllLink="/offers" 
-            showCarousel={true} 
+
+          {/* Seção de ofertas em destaque */}
+          <FeaturedProducts
+            title="Ofertas em Destaque"
+            seeAllLink="/offers"
+            showCarousel={true}
           />
-          <FeaturedProducts 
-            title="Mais Vendidos" 
-            seeAllLink="/best-sellers" 
-            showCarousel={true} 
+
+          {/* Seção de produtos mais vendidos */}
+          <FeaturedProducts
+            title="Mais Vendidos"
+            seeAllLink="/best-sellers"
+            showCarousel={true}
           />
-          <FeaturedProducts 
-            title="Produtos de Saúde Essenciais" 
-            seeAllLink="/categories/saude" 
-            productList={healthProductsData} 
+
+          {/* Seção de produtos de saúde essenciais */}
+          <FeaturedProducts
+            title="Produtos de Saúde Essenciais"
+            seeAllLink="/categories/saude"
+            productList={healthProductsData}
             showCarousel={isMobile}
           />
-          <FeaturedProducts 
-            title="Produtos de Higiene" 
-            seeAllLink="/categories/higiene" 
-            productList={hygieneProductsData} 
+
+          {/* Seção de produtos de higiene */}
+          <FeaturedProducts
+            title="Produtos de Higiene"
+            seeAllLink="/categories/higiene"
+            productList={hygieneProductsData}
             showCarousel={isMobile}
           />
         </div>
       </main>
-      <footer className="py-4 md:py-6 bg-muted mt-8">
-        <div className="container px-4 text-center text-xs md:text-sm text-muted-foreground">
-          <p>© 2025 Farmácia Virtual Encantada. Todos os direitos reservados.</p>
-          <div className="mt-2 space-x-2 md:space-x-4 text-xs">
-            <Link to="/terms" className="hover:underline">Termos de Uso</Link>
-            <Link to="/privacy" className="hover:underline">Política de Privacidade</Link>
-          </div>
-        </div>
-      </footer>
+
+      {/* Rodapé */}
+      <Footer />
     </div>
   );
 };

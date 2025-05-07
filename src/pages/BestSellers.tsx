@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import { Link } from "react-router-dom";
@@ -30,8 +29,8 @@ const bestSellingProducts = [
     id: "best3",
     name: "Vitamina C 1000mg",
     image: "/placeholder.svg",
-    price: 22.50,
-    oldPrice: 26.90,
+    price: 22.5,
+    oldPrice: 26.9,
     requiresPrescription: false,
     inStock: true,
   },
@@ -39,7 +38,7 @@ const bestSellingProducts = [
     id: "best4",
     name: "Creme Dental",
     image: "/placeholder.svg",
-    price: 8.50,
+    price: 8.5,
     requiresPrescription: false,
     inStock: true,
   },
@@ -56,7 +55,7 @@ const bestSellingProducts = [
     id: "best6",
     name: "Protetor Solar FPS 30",
     image: "/placeholder.svg",
-    price: 39.90,
+    price: 39.9,
     requiresPrescription: false,
     inStock: true,
   },
@@ -64,8 +63,8 @@ const bestSellingProducts = [
     id: "best7",
     name: "Álcool em Gel 70%",
     image: "/placeholder.svg",
-    price: 15.90,
-    oldPrice: 19.90,
+    price: 15.9,
+    oldPrice: 19.9,
     requiresPrescription: false,
     inStock: true,
   },
@@ -73,8 +72,8 @@ const bestSellingProducts = [
     id: "best8",
     name: "Enxaguante Bucal",
     image: "/placeholder.svg",
-    price: 12.90,
-    oldPrice: 15.90,
+    price: 12.9,
+    oldPrice: 15.9,
     requiresPrescription: false,
     inStock: true,
   },
@@ -82,7 +81,7 @@ const bestSellingProducts = [
     id: "best9",
     name: "Fralda Premium P",
     image: "/placeholder.svg",
-    price: 59.90,
+    price: 59.9,
     oldPrice: 69.99,
     requiresPrescription: false,
     inStock: true,
@@ -91,7 +90,7 @@ const bestSellingProducts = [
     id: "best10",
     name: "Hidratante Facial",
     image: "/placeholder.svg",
-    price: 34.50,
+    price: 34.5,
     requiresPrescription: false,
     inStock: true,
   },
@@ -107,7 +106,7 @@ const bestSellingProducts = [
     id: "best12",
     name: "Lubrificante Ocular",
     image: "/placeholder.svg",
-    price: 22.90,
+    price: 22.9,
     requiresPrescription: false,
     inStock: true,
   },
@@ -126,7 +125,7 @@ const BestSellers: React.FC = () => {
                 Voltar
               </Button>
             </Link>
-            <h1 className="text-2xl font-bold text-pharmacy-dark-purple ml-4">
+            <h1 className="text-2xl font-bold text-pharmacy-primary ml-4">
               Produtos Mais Vendidos
             </h1>
           </div>
@@ -149,10 +148,16 @@ const BestSellers: React.FC = () => {
       </main>
       <footer className="py-6 bg-muted">
         <div className="container text-center text-sm text-muted-foreground">
-          <p>© 2025 Farmácia Virtual Encantada. Todos os direitos reservados.</p>
+          <p>
+            © 2025 Farmácia Virtual Encantada. Todos os direitos reservados.
+          </p>
           <div className="mt-2 space-x-4">
-            <Link to="/terms" className="text-xs hover:underline">Termos de Uso</Link>
-            <Link to="/privacy" className="text-xs hover:underline">Política de Privacidade</Link>
+            <Link to="/terms" className="text-xs hover:underline">
+              Termos de Uso
+            </Link>
+            <Link to="/privacy" className="text-xs hover:underline">
+              Política de Privacidade
+            </Link>
           </div>
         </div>
       </footer>

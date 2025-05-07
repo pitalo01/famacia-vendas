@@ -1,10 +1,14 @@
-
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardFooter,
+} from "@/components/ui/card";
 import { toast } from "sonner";
 
 // Input mask for CPF and phone
@@ -40,7 +44,7 @@ const RegisterForm: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    
+
     if (name === "cpf") {
       setFormData((prev) => ({ ...prev, [name]: maskCPF(value) }));
     } else if (name === "phone") {
@@ -48,7 +52,7 @@ const RegisterForm: React.FC = () => {
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }));
     }
-    
+
     // Clear the specific error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
@@ -57,52 +61,52 @@ const RegisterForm: React.FC = () => {
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = "Nome é obrigatório";
     }
-    
+
     if (!formData.email.trim()) {
       newErrors.email = "Email é obrigatório";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Email inválido";
     }
-    
+
     if (!formData.cpf.trim()) {
       newErrors.cpf = "CPF é obrigatório";
     } else if (formData.cpf.replace(/\D/g, "").length !== 11) {
       newErrors.cpf = "CPF inválido";
     }
-    
+
     if (!formData.phone.trim()) {
       newErrors.phone = "Telefone é obrigatório";
     } else if (formData.phone.replace(/\D/g, "").length < 10) {
       newErrors.phone = "Telefone inválido";
     }
-    
+
     if (!formData.password) {
       newErrors.password = "Senha é obrigatória";
     } else if (formData.password.length < 6) {
       newErrors.password = "Senha deve ter pelo menos 6 caracteres";
     }
-    
+
     if (formData.password !== formData.confirmPassword) {
       newErrors.confirmPassword = "Senhas não coincidem";
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsLoading(true);
-    
+
     // Simulated registration - would be replaced with actual API call
     setTimeout(() => {
       setIsLoading(false);
@@ -130,9 +134,11 @@ const RegisterForm: React.FC = () => {
               onChange={handleChange}
               placeholder="Seu nome completo"
             />
-            {errors.name && <p className="text-destructive text-sm">{errors.name}</p>}
+            {errors.name && (
+              <p className="text-destructive text-sm">{errors.name}</p>
+            )}
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -143,9 +149,11 @@ const RegisterForm: React.FC = () => {
               onChange={handleChange}
               placeholder="seu@email.com"
             />
-            {errors.email && <p className="text-destructive text-sm">{errors.email}</p>}
+            {errors.email && (
+              <p className="text-destructive text-sm">{errors.email}</p>
+            )}
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="cpf">CPF</Label>
@@ -157,9 +165,11 @@ const RegisterForm: React.FC = () => {
                 placeholder="000.000.000-00"
                 maxLength={14}
               />
-              {errors.cpf && <p className="text-destructive text-sm">{errors.cpf}</p>}
+              {errors.cpf && (
+                <p className="text-destructive text-sm">{errors.cpf}</p>
+              )}
             </div>
-            
+
             <div className="space-y-2">
               <Label htmlFor="phone">Telefone</Label>
               <Input
@@ -170,10 +180,12 @@ const RegisterForm: React.FC = () => {
                 placeholder="(00) 00000-0000"
                 maxLength={15}
               />
-              {errors.phone && <p className="text-destructive text-sm">{errors.phone}</p>}
+              {errors.phone && (
+                <p className="text-destructive text-sm">{errors.phone}</p>
+              )}
             </div>
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="password">Senha</Label>
             <Input
@@ -183,9 +195,11 @@ const RegisterForm: React.FC = () => {
               value={formData.password}
               onChange={handleChange}
             />
-            {errors.password && <p className="text-destructive text-sm">{errors.password}</p>}
+            {errors.password && (
+              <p className="text-destructive text-sm">{errors.password}</p>
+            )}
           </div>
-          
+
           <div className="space-y-2">
             <Label htmlFor="confirmPassword">Confirme a Senha</Label>
             <Input
@@ -195,12 +209,16 @@ const RegisterForm: React.FC = () => {
               value={formData.confirmPassword}
               onChange={handleChange}
             />
-            {errors.confirmPassword && <p className="text-destructive text-sm">{errors.confirmPassword}</p>}
+            {errors.confirmPassword && (
+              <p className="text-destructive text-sm">
+                {errors.confirmPassword}
+              </p>
+            )}
           </div>
-          
+
           <Button
             type="submit"
-            className="w-full bg-pharmacy-purple hover:bg-pharmacy-dark-purple"
+            className="w-full bg-pharmacy-primary hover:bg-pharmacy-dark-primary"
             disabled={isLoading}
           >
             {isLoading ? "Cadastrando..." : "Cadastrar"}
@@ -210,7 +228,7 @@ const RegisterForm: React.FC = () => {
       <CardFooter className="flex flex-col space-y-4">
         <div className="text-sm text-center text-muted-foreground">
           Já tem uma conta?{" "}
-          <Link to="/login" className="text-pharmacy-purple hover:underline">
+          <Link to="/login" className="text-pharmacy-primary hover:underline">
             Entre aqui
           </Link>
         </div>

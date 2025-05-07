@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Star, Plus, Minus, ChevronRight, Heart, AlertTriangle } from "lucide-react";
+import {
+  ShoppingCart,
+  Star,
+  Plus,
+  Minus,
+  ChevronRight,
+  Heart,
+  AlertTriangle,
+} from "lucide-react";
 import { toast } from "sonner";
 import Navbar from "@/components/Navbar";
 import { getProductById, ProductDetails } from "@/lib/products";
@@ -24,7 +32,7 @@ const ProductDetail: React.FC = () => {
             setLoading(false);
             return;
           }
-          
+
           const productData = getProductById(id);
           setProduct(productData);
           setLoading(false);
@@ -47,7 +55,11 @@ const ProductDetail: React.FC = () => {
 
   const handleAddToCart = () => {
     if (product) {
-      toast.success(`${quantity} ${quantity > 1 ? "unidades" : "unidade"} de ${product.name} adicionadas ao carrinho`);
+      toast.success(
+        `${quantity} ${quantity > 1 ? "unidades" : "unidade"} de ${
+          product.name
+        } adicionadas ao carrinho`
+      );
     }
   };
 
@@ -79,41 +91,59 @@ const ProductDetail: React.FC = () => {
           </div>
         ) : !product ? (
           <div className="container mx-auto px-4 py-8 text-center">
-            <h2 className="text-2xl font-bold text-pharmacy-dark-purple mb-4">Produto não encontrado</h2>
-            <p className="mb-6">O produto que você está procurando não está disponível.</p>
-            <Link to="/" className="text-pharmacy-purple hover:underline">
+            <h2 className="text-2xl font-bold text-pharmacy-dark-primary mb-4">
+              Produto não encontrado
+            </h2>
+            <p className="mb-6">
+              O produto que você está procurando não está disponível.
+            </p>
+            <Link to="/" className="text-pharmacy-primary hover:underline">
               Voltar para a página inicial
             </Link>
           </div>
         ) : (
           <div className="container mx-auto px-4 py-8">
             {/* Breadcrumb */}
-            <div className="flex items-center text-sm text-gray-500 mb-6 overflow-x-auto">
-              <Link to="/" className="hover:text-pharmacy-purple truncate">Início</Link>
-              <ChevronRight className="h-4 w-4 mx-1" />
-              <Link to="/categories" className="hover:text-pharmacy-purple truncate">Categorias</Link>
-              <ChevronRight className="h-4 w-4 mx-1" />
-              <span className="text-pharmacy-purple truncate">{product.name}</span>
-            </div>
+            <nav className="flex items-center text-sm mb-6 overflow-x-auto">
+              <Link to="/" className="text-pharmacy-primary hover:underline">
+                Início
+              </Link>
+              <span className="mx-2">/</span>
+              <Link
+                to="/categories"
+                className="hover:text-pharmacy-primary truncate"
+              >
+                Categorias
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="text-pharmacy-primary truncate">
+                {product.name}
+              </span>
+            </nav>
 
             <div className="flex flex-col md:flex-row gap-8">
               {/* Imagem do produto */}
               <div className="w-full md:w-1/2">
                 <div className="bg-white rounded-lg p-4 shadow-md">
                   <div className="aspect-square relative overflow-hidden rounded-md">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
+                    <img
+                      src={product.image}
+                      alt={product.name}
                       className="object-contain w-full h-full"
                     />
                     {product.oldPrice && (
                       <div className="absolute top-2 left-2 z-10">
                         <span className="discount-badge animate-pulse-light">
-                          {Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)}% OFF
+                          {Math.round(
+                            ((product.oldPrice - product.price) /
+                              product.oldPrice) *
+                              100
+                          )}
+                          % OFF
                         </span>
                       </div>
                     )}
-                    
+
                     {product.requiresPrescription && (
                       <div className="absolute top-2 right-2 z-10">
                         <span className="prescription-badge flex items-center gap-1">
@@ -127,8 +157,10 @@ const ProductDetail: React.FC = () => {
 
               {/* Detalhes do produto */}
               <div className="w-full md:w-1/2 space-y-4">
-                <h1 className="text-2xl font-bold text-gray-700">{product.name}</h1>
-                
+                <h1 className="text-2xl font-bold text-gray-700">
+                  {product.name}
+                </h1>
+
                 {product.brand && (
                   <div className="text-sm text-gray-500">
                     <span className="font-medium">{product.brand}</span>
@@ -138,16 +170,22 @@ const ProductDetail: React.FC = () => {
                 {product.rating && (
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
-                      <Star 
-                        key={i} 
-                        className={`h-4 w-4 ${i < Math.floor(product.rating || 0) ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`}
+                      <Star
+                        key={i}
+                        className={`h-4 w-4 ${
+                          i < Math.floor(product.rating || 0)
+                            ? "text-yellow-400 fill-yellow-400"
+                            : "text-gray-300"
+                        }`}
                       />
                     ))}
                     <span className="ml-2 text-sm text-gray-500">
                       ({product.ratingCount})
                     </span>
                     <span className="ml-2 text-sm text-gray-500">
-                      {product.requiresPrescription ? "Necessita de prescrição médica" : "Adequado para diversos usos"}
+                      {product.requiresPrescription
+                        ? "Necessita de prescrição médica"
+                        : "Adequado para diversos usos"}
                     </span>
                   </div>
                 )}
@@ -164,11 +202,11 @@ const ProductDetail: React.FC = () => {
                 <div className="mt-4">
                   {product.oldPrice && (
                     <div className="text-sm text-gray-500 line-through">
-                      R$ {product.oldPrice.toFixed(2).replace('.', ',')}
+                      R$ {product.oldPrice.toFixed(2).replace(".", ",")}
                     </div>
                   )}
-                  <div className="text-3xl font-bold text-pharmacy-dark-purple">
-                    R$ {product.price.toFixed(2).replace('.', ',')}
+                  <div className="text-3xl font-bold text-pharmacy-dark-primary">
+                    R$ {product.price.toFixed(2).replace(".", ",")}
                   </div>
                 </div>
 
@@ -178,9 +216,9 @@ const ProductDetail: React.FC = () => {
                     Quantidade:
                   </label>
                   <div className="flex items-center">
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="rounded-r-none"
                       onClick={() => handleQuantityChange(quantity - 1)}
                       disabled={quantity <= 1}
@@ -190,9 +228,9 @@ const ProductDetail: React.FC = () => {
                     <div className="w-12 h-9 flex items-center justify-center border-y border-gray-300">
                       {quantity}
                     </div>
-                    <Button 
-                      variant="outline" 
-                      size="sm" 
+                    <Button
+                      variant="outline"
+                      size="sm"
                       className="rounded-l-none"
                       onClick={() => handleQuantityChange(quantity + 1)}
                     >
@@ -203,19 +241,19 @@ const ProductDetail: React.FC = () => {
 
                 {/* Botões de ação */}
                 <div className="pt-4 grid grid-cols-1 gap-4">
-                  <Button 
-                    className="w-full bg-pharmacy-purple hover:bg-pharmacy-dark-purple" 
+                  <Button
+                    className="w-full bg-pharmacy-primary hover:bg-pharmacy-dark-primary"
                     size="lg"
                     onClick={handleAddToCart}
                     disabled={!product.inStock}
                   >
                     <ShoppingCart className="mr-2 h-5 w-5" />
-                    {product.inStock ? 'Comprar' : 'Produto Indisponível'}
+                    {product.inStock ? "Comprar" : "Produto Indisponível"}
                   </Button>
-                  
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-pharmacy-purple text-pharmacy-purple hover:bg-pharmacy-purple/10"
+
+                  <Button
+                    variant="outline"
+                    className="w-full border-pharmacy-primary text-pharmacy-primary hover:bg-pharmacy-primary/10"
                     onClick={handleAddToFavorites}
                   >
                     <Heart className="mr-2 h-4 w-4" />
@@ -229,18 +267,22 @@ const ProductDetail: React.FC = () => {
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
               {product.description && (
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h2 className="text-xl font-bold text-pharmacy-dark-purple mb-4">Descrição</h2>
+                  <h2 className="text-xl font-bold text-pharmacy-dark-primary mb-4">
+                    Descrição
+                  </h2>
                   <p className="text-gray-700">{product.description}</p>
                 </div>
               )}
 
               {product.features && product.features.length > 0 && (
                 <div className="bg-white p-6 rounded-lg shadow-sm">
-                  <h2 className="text-xl font-bold text-pharmacy-dark-purple mb-4">Características</h2>
+                  <h2 className="text-xl font-bold text-pharmacy-dark-primary mb-4">
+                    Características
+                  </h2>
                   <ul className="space-y-2">
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-start">
-                        <span className="text-pharmacy-purple mr-2">•</span>
+                        <span className="text-pharmacy-primary mr-2">•</span>
                         <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
@@ -253,10 +295,16 @@ const ProductDetail: React.FC = () => {
       </main>
       <footer className="py-4 md:py-6 bg-muted mt-8">
         <div className="container px-4 text-center text-xs md:text-sm text-muted-foreground">
-          <p>© 2025 Farmácia Virtual Encantada. Todos os direitos reservados.</p>
+          <p>
+            © 2025 Farmácia Virtual Encantada. Todos os direitos reservados.
+          </p>
           <div className="mt-2 space-x-2 md:space-x-4 text-xs">
-            <Link to="/terms" className="hover:underline">Termos de Uso</Link>
-            <Link to="/privacy" className="hover:underline">Política de Privacidade</Link>
+            <Link to="/terms" className="hover:underline">
+              Termos de Uso
+            </Link>
+            <Link to="/privacy" className="hover:underline">
+              Política de Privacidade
+            </Link>
           </div>
         </div>
       </footer>
@@ -264,4 +312,4 @@ const ProductDetail: React.FC = () => {
   );
 };
 
-export default ProductDetail; 
+export default ProductDetail;

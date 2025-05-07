@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -30,7 +29,7 @@ const sampleCartItems: CartItem[] = [
     id: "2",
     name: "Vitamina C 1g com 30 comprimidos efervescentes",
     image: "/placeholder.svg",
-    price: 25.90,
+    price: 25.9,
     quantity: 2,
     requiresPrescription: false,
   },
@@ -40,16 +39,16 @@ const Cart: React.FC = () => {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = React.useState<CartItem[]>(sampleCartItems);
   const [isLoggedIn, setIsLoggedIn] = React.useState(false);
-  
+
   const subtotal = cartItems.reduce(
     (acc, item) => acc + item.price * item.quantity,
     0
   );
-  
+
   const FREE_SHIPPING_THRESHOLD = 100;
   const shippingFee = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : 10;
   const total = subtotal + shippingFee;
-  
+
   const handleQuantityChange = (id: string, change: number) => {
     setCartItems(
       cartItems.map((item) => {
@@ -61,12 +60,12 @@ const Cart: React.FC = () => {
       })
     );
   };
-  
+
   const handleRemoveItem = (id: string) => {
     setCartItems(cartItems.filter((item) => item.id !== id));
     toast.success("Item removido do carrinho");
   };
-  
+
   const handleCheckout = () => {
     if (isLoggedIn) {
       navigate("/checkout");
@@ -114,12 +113,13 @@ const Cart: React.FC = () => {
                     {item.requiresPrescription && (
                       <div className="mt-1 flex items-center">
                         <span className="prescription-badge flex items-center gap-1">
-                          <AlertTriangle className="h-3 w-3" /> Receita necessária
+                          <AlertTriangle className="h-3 w-3" /> Receita
+                          necessária
                         </span>
                       </div>
                     )}
                   </div>
-                  <p className="font-medium text-pharmacy-dark-purple mt-1 sm:mt-0">
+                  <p className="font-medium text-pharmacy-primary mt-1 sm:mt-0">
                     R$ {item.price.toFixed(2)}
                   </p>
                 </div>
@@ -155,14 +155,14 @@ const Cart: React.FC = () => {
               </div>
             </div>
           ))}
-          
+
           <div className="flex justify-between mt-4">
             <Button variant="outline" asChild>
               <Link to="/categories">Continuar comprando</Link>
             </Button>
           </div>
         </div>
-        
+
         <div className="bg-muted/30 p-6 rounded-lg h-fit space-y-4">
           <h2 className="text-lg font-medium mb-4">Resumo do Pedido</h2>
           <div className="flex justify-between">
@@ -179,7 +179,8 @@ const Cart: React.FC = () => {
           </div>
           {shippingFee > 0 && (
             <div className="text-xs text-muted-foreground">
-              Faltam R$ {(FREE_SHIPPING_THRESHOLD - subtotal).toFixed(2)} para frete grátis
+              Faltam R$ {(FREE_SHIPPING_THRESHOLD - subtotal).toFixed(2)} para
+              frete grátis
             </div>
           )}
           <Separator />
@@ -187,18 +188,19 @@ const Cart: React.FC = () => {
             <span>Total</span>
             <span className="text-lg">R$ {total.toFixed(2)}</span>
           </div>
-          <Button 
-            className="w-full bg-pharmacy-purple hover:bg-pharmacy-dark-purple" 
+          <Button
+            className="w-full bg-pharmacy-primary hover:bg-pharmacy-dark-primary"
             onClick={handleCheckout}
           >
             Finalizar Compra
           </Button>
-          
-          {cartItems.some(item => item.requiresPrescription) && (
+
+          {cartItems.some((item) => item.requiresPrescription) && (
             <div className="flex items-start space-x-2 p-3 bg-pharmacy-red/10 rounded-md mt-4">
               <AlertTriangle className="h-5 w-5 text-pharmacy-red flex-shrink-0 mt-0.5" />
               <p className="text-sm text-pharmacy-red">
-                Este pedido contém itens que exigem receita médica. Você precisará apresentar a receita para concluir a compra.
+                Este pedido contém itens que exigem receita médica. Você
+                precisará apresentar a receita para concluir a compra.
               </p>
             </div>
           )}
