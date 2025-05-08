@@ -152,7 +152,7 @@ const ProductCategories: React.FC = () => {
             >
               <div className="category-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4 flex flex-col items-center justify-center py-4 space-y-2">
                 {category.icon}
-                <h3 className="font-medium text-sm text-center">
+                <h3 className="font-medium text-sm text-center w-full flex justify-center items-center">
                   {category.name}
                 </h3>
               </div>

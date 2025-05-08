@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "@/components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { Pill, Heart, ShowerHead, Baby, Sun, Bed } from "lucide-react";
+import { Pill, Heart, ShowerHead, Baby, Sun, Bed, ArrowLeft } from "lucide-react";
 
 // Sample categories - expanded from the component with subcategories
 const categories = [
@@ -51,43 +51,49 @@ const categories = [
 ];
 
 const Categories = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-1 py-8">
         <div className="container px-4">
-          <h1 className="text-2xl font-bold mb-6">Categorias de Produtos</h1>
+          <div className="flex items-center mb-6 gap-2">
+            {/* Seta para voltar */}
+            <button
+              onClick={() => navigate("/")}
+              className="p-2 rounded-full bg-muted hover:bg-pharmacy-primary/20 transition-colors"
+              aria-label="Voltar para a página inicial"
+            >
+              <ArrowLeft className="h-5 w-5 text-pharmacy-primary" />
+            </button>
+            <h1 className="text-2xl font-bold">Categorias de Produtos</h1>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categories.map((category) => (
-              <Card
+              <Link
                 key={category.id}
-                className="animate-fade-in overflow-hidden"
+                to={category.link}
+                className="animate-fade-in"
               >
-                <CardHeader className="pb-3 flex flex-col items-center bg-muted/30">
-                  {category.icon}
-                  <h2 className="text-xl font-semibold">{category.title}</h2>
-                </CardHeader>
-                <CardContent className="pt-4">
-                  <p className="text-sm text-muted-foreground">
-                    {category.description}
-                  </p>
-                  <Link
-                    to={category.link}
-                    className="block mt-4 text-center text-sm text-pharmacy-primary hover:underline"
-                  >
-                    Ver todos os produtos
-                  </Link>
-                </CardContent>
-              </Card>
+                <Card className="overflow-hidden h-64 md:h-72 cursor-pointer hover:shadow-lg transition-shadow flex flex-col">
+                  <CardHeader className="pb-3 flex flex-col items-center bg-muted/30">
+                    <div className="rounded-full bg-pharmacy-primary/20 p-4 mb-2 shadow-md transition-all duration-300 group-hover:bg-pharmacy-primary/40 group-hover:scale-110 group-hover:shadow-lg flex items-center justify-center animate-fade-in-up">
+                      {React.cloneElement(category.icon, {
+                        className: "h-12 w-12 text-pharmacy-primary transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg",
+                      })}
+                    </div>
+                    <h2 className="text-xl font-semibold">{category.title}</h2>
+                  </CardHeader>
+                  <CardContent className="pt-4 flex-1 flex flex-col justify-center">
+                    <p className="text-sm text-muted-foreground text-center">
+                      {category.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
-          <Link
-            to="/"
-            className="block mt-4 text-center text-sm text-pharmacy-primary hover:underline"
-          >
-            Voltar para a página inicial
-          </Link>
         </div>
       </main>
       <footer className="py-6 bg-muted">
