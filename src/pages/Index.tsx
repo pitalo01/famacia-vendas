@@ -17,6 +17,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { healthProductsData, hygieneProductsData } from "@/lib/products";
+import { sampleProducts } from "./CategoryProducts";
+import { offeredProducts } from "./ProductOffers";
 
 /**
  * Componente Index
@@ -53,6 +55,7 @@ const Index = () => {
           <FeaturedProducts
             title="Ofertas em Destaque"
             seeAllLink="/offers"
+            productList={offeredProducts}
             showCarousel={true}
           />
 
@@ -67,7 +70,7 @@ const Index = () => {
           <FeaturedProducts
             title="Produtos de Saúde Essenciais"
             seeAllLink="/categories/saude"
-            productList={healthProductsData}
+            productList={sampleProducts.saude}
             showCarousel={isMobile}
           />
 
@@ -75,7 +78,7 @@ const Index = () => {
           <FeaturedProducts
             title="Produtos de Higiene"
             seeAllLink="/categories/higiene"
-            productList={hygieneProductsData}
+            productList={sampleProducts.higiene}
             showCarousel={isMobile}
           />
         </div>

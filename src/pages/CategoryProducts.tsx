@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 
 // This is sample product data that would normally come from an API
-const sampleProducts = {
+export const sampleProducts = {
   medicamentos: [
     {
       id: "med1",

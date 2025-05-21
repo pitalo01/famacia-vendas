@@ -2,7 +2,15 @@ import React from "react";
 import Navbar from "@/components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { Pill, Heart, ShowerHead, Baby, Sun, Bed, ArrowLeft } from "lucide-react";
+import {
+  Pill,
+  Heart,
+  ShowerHead,
+  Baby,
+  Sun,
+  Bed,
+  ArrowLeft,
+} from "lucide-react";
 
 // Sample categories - expanded from the component with subcategories
 const categories = [
@@ -69,24 +77,25 @@ const Categories = () => {
             <h1 className="text-2xl font-bold">Categorias de Produtos</h1>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {categories.map((category) => (
               <Link
                 key={category.id}
                 to={category.link}
                 className="animate-fade-in"
               >
-                <Card className="overflow-hidden h-64 md:h-72 cursor-pointer hover:shadow-lg transition-shadow flex flex-col">
+                <Card className="overflow-hidden h-48 md:h-56 cursor-pointer hover:shadow-lg transition-shadow flex flex-col">
                   <CardHeader className="pb-3 flex flex-col items-center bg-muted/30">
-                    <div className="rounded-full bg-pharmacy-primary/20 p-4 mb-2 shadow-md transition-all duration-300 group-hover:bg-pharmacy-primary/40 group-hover:scale-110 group-hover:shadow-lg flex items-center justify-center animate-fade-in-up">
+                    <div className="rounded-full bg-pharmacy-primary/20 p-3 mb-2 shadow-md transition-all duration-300 group-hover:bg-pharmacy-primary/40 group-hover:scale-110 group-hover:shadow-lg flex items-center justify-center animate-fade-in-up">
                       {React.cloneElement(category.icon, {
-                        className: "h-12 w-12 text-pharmacy-primary transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg",
+                        className:
+                          "h-10 w-10 text-pharmacy-primary transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg",
                       })}
                     </div>
-                    <h2 className="text-xl font-semibold">{category.title}</h2>
+                    <h2 className="text-lg font-semibold">{category.title}</h2>
                   </CardHeader>
-                  <CardContent className="pt-4 flex-1 flex flex-col justify-center">
-                    <p className="text-sm text-muted-foreground text-center">
+                  <CardContent className="pt-2 flex-1 flex flex-col justify-center">
+                    <p className="text-xs text-muted-foreground text-center">
                       {category.description}
                     </p>
                   </CardContent>

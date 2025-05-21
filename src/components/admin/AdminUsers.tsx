@@ -583,12 +583,6 @@ const AdminUsers: React.FC = () => {
                       </div>
                       <div>
                         <div className="text-sm font-medium text-muted-foreground">
-                          ID:
-                        </div>
-                        <div className="text-xs">{selectedUser.id}</div>
-                      </div>
-                      <div>
-                        <div className="text-sm font-medium text-muted-foreground">
                           Tipo de Conta:
                         </div>
                         <div className="flex items-center gap-2">
@@ -781,13 +775,6 @@ const AdminUsers: React.FC = () => {
                     <Label htmlFor="isAdmin" className="cursor-pointer">
                       Administrador do Sistema
                     </Label>
-                  </div>
-
-                  <div className="pt-4">
-                    <p className="text-sm text-muted-foreground mb-2">
-                      ID do usuário:{" "}
-                      <span className="text-xs font-mono">{editedUser.id}</span>
-                    </p>
                   </div>
                 </div>
               </div>

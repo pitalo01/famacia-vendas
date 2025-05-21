@@ -7,7 +7,7 @@ import { ChevronLeft } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 // Sample data for offered products
-const offeredProducts = [
+export const offeredProducts = [
   {
     id: "1",
     name: "Dipirona Sódica 1g com 10 comprimidos",
@@ -15,116 +15,6 @@ const offeredProducts = [
       "https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     price: 12.99,
     oldPrice: 19.99,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "3",
-    name: "Vitamina C 1g com 30 comprimidos efervescentes",
-    image:
-      "https://images.unsplash.com/photo-1585435557885-28ebd3b15de4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 25.9,
-    oldPrice: 35.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "5",
-    name: "Protetor Solar FPS 60",
-    image:
-      "https://images.unsplash.com/photo-1556227702-a1d34a6eba25?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 42.9,
-    oldPrice: 55.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "7",
-    name: "Xarope para Tosse",
-    image:
-      "https://images.unsplash.com/photo-1550572017-42915b4f8d74?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 24.99,
-    oldPrice: 29.99,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "9",
-    name: "Suplemento Whey Protein",
-    image:
-      "https://images.unsplash.com/photo-1579722582772-71f66d01e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 89.9,
-    oldPrice: 109.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "12",
-    name: "Vitamina D3 2000UI",
-    image:
-      "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 39.9,
-    oldPrice: 49.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "off7",
-    name: "Hidratante Corporal 400ml",
-    image:
-      "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 19.9,
-    oldPrice: 24.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "off8",
-    name: "Água Micelar 200ml",
-    image:
-      "https://images.unsplash.com/photo-1629198735660-e39ea93f5c18?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 29.9,
-    oldPrice: 39.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "off9",
-    name: "Repelente Infantil",
-    image:
-      "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 18.5,
-    oldPrice: 22.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "off10",
-    name: "Sabonete Líquido Antibacteriano",
-    image:
-      "https://images.unsplash.com/photo-1584473457406-6240486418e9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 14.9,
-    oldPrice: 19.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "off11",
-    name: "Aspirina 500mg 20 comprimidos",
-    image:
-      "https://images.unsplash.com/photo-1584308666984-91a927ee8269?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 10.9,
-    oldPrice: 15.9,
-    requiresPrescription: false,
-    inStock: true,
-  },
-  {
-    id: "off12",
-    name: "Pomada para Assaduras",
-    image:
-      "https://images.unsplash.com/photo-1628615530920-865e29eabd47?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
-    price: 22.9,
-    oldPrice: 29.9,
     requiresPrescription: false,
     inStock: true,
   },

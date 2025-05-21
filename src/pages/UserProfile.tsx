@@ -468,14 +468,6 @@ const UserProfile = () => {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">
-                        ID do Usuário
-                      </p>
-                      <p className="font-medium text-xs text-muted-foreground">
-                        {user.id}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">
                         Endereços Cadastrados
                       </p>
                       <p className="font-medium">

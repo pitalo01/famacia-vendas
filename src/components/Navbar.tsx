@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
   const { totalItems } = useCart();
 
   // Obtém informações de autenticação do contexto
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, logout, isAdmin } = useAuth();
 
   const navigate = useNavigate();
 
@@ -109,34 +109,36 @@ const Navbar: React.FC = () => {
             </Button>
           )}
 
-          {/* Botão do carrinho com contador de itens */}
-          <Button variant="ghost" size="sm" className="relative" asChild>
-            <Link to="/cart">
-              <ShoppingCart className="h-4 w-4" />
-              {/* Badge de contagem de itens (visível apenas quando há itens) */}
-              {totalItems > 0 && (
-                <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-pharmacy-primary text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
-            </Link>
-          </Button>
+          {/* Botão do carrinho com contador de itens - só para não-admin */}
+          {!isAdmin && (
+            <Button variant="ghost" size="sm" className="relative" asChild>
+              <Link to="/cart">
+                <ShoppingCart className="h-4 w-4" />
+                {totalItems > 0 && (
+                  <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-pharmacy-primary text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
+            </Button>
+          )}
         </nav>
 
         {/* Botões de navegação para dispositivos móveis */}
         <div className="md:hidden flex items-center gap-2">
-          {/* Botão do carrinho em versão mobile */}
-          <Button variant="ghost" size="icon" className="relative" asChild>
-            <Link to="/cart">
-              <ShoppingCart className="h-5 w-5" />
-              {/* Badge de contagem de itens (visível apenas quando há itens) */}
-              {totalItems > 0 && (
-                <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-pharmacy-primary text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
-                  {totalItems}
-                </span>
-              )}
-            </Link>
-          </Button>
+          {/* Botão do carrinho em versão mobile - só para não-admin */}
+          {!isAdmin && (
+            <Button variant="ghost" size="icon" className="relative" asChild>
+              <Link to="/cart">
+                <ShoppingCart className="h-5 w-5" />
+                {totalItems > 0 && (
+                  <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-pharmacy-primary text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+              </Link>
+            </Button>
+          )}
 
           {/* Botão para abrir/fechar o menu mobile */}
           <Button
